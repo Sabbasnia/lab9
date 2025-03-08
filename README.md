@@ -1,6 +1,6 @@
 
 
-```md
+
 # 4640-AWS EC2 Setup Using Packer, Ansible, and Terraform
 **Sina Abbasnia A01377364**  
 **Tristan Torress A01331949**  
