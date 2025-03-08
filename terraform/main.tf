@@ -9,6 +9,10 @@ terraform {
   }
 }
 
+resource "aws_key_pair" "imported" {
+  key_name   = "aws-4640"
+  public_key = file("./aws-4640.pub")
+}
 # Configure the AWS Provider
 provider "aws" {
   region = "us-west-2"
@@ -21,7 +25,14 @@ locals {
 # get the most recent version of your AMI created with packer template
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami
 data "aws_ami" "ubuntu" {
-  # COMPLETE ME
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["web-nginx-aws"]
+  }
+
+  owners = ["self"]
 }
 
 # Create a VPC
@@ -126,6 +137,8 @@ resource "aws_vpc_security_group_egress_rule" "web-egress" {
   cidr_ipv4   = "0.0.0.0/0"
   ip_protocol = -1
 }
+
+
 
 # create the ec2 instance
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
