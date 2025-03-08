@@ -1,4 +1,4 @@
-Here is your properly formatted **Markdown (MD) document** without unnecessary icons:
+
 
 ```md
 # 4640-AWS EC2 Setup Using Packer, Ansible, and Terraform
