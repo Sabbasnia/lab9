@@ -7,7 +7,7 @@
 
 ---
 
-## Prerequisites  
+## requirements 
 Before following this tutorial, ensure you have installed the following:  
 
 1. **Packer**  
